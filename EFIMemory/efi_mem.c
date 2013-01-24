@@ -22,7 +22,7 @@ EFI_STATUS efi_main(EFI_HANDLE image_handle, EFI_SYSTEM_TABLE *systab)
     }
     
 
-    result = systab->BootServices->AllocatePool(EfiLoaderData, map_size, &map);
+    result = systab->BootServices->AllocatePool(EfiLoaderData, map_size,(void**)&map);
     
     if(result != EFI_SUCCESS)
     {
