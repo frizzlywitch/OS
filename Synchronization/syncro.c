@@ -43,10 +43,26 @@ int main()
     {
         c = 0;
         for (int i = 0; i < 4; ++i)
-            pthread_create(&threads[i], NULL, thread_func, NULL);
+        {
+            int return_code = pthread_create(&threads[i], NULL, thread_func, NULL);
+
+            if(return_code != 0)
+            {
+                printf("PTHREAD_CREATE error occured.");
+                abort();
+            }
+        }
 
         for (int i = 0; i < 4; ++i)
-            pthread_join(threads[i], NULL);
+        {
+            int return_code = pthread_join(threads[i], NULL);
+            
+            if(return_code != 0)
+            {
+                printf("PTHREAD_JOIN error occured.");
+                abort();
+            }
+        }
 
         if (c != 400000)
         {
