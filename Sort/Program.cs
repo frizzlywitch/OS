@@ -50,6 +50,10 @@ namespace OS2
                     Console.Write(num +" ");
                 }
             }
+            catch(OutOfMemoryException e)
+            {
+                Console.WriteLine("Not enough memory in system.");
+            }
             catch(Exception e)
             {
                 Console.WriteLine("Unknown error: {0}",e.Message);
