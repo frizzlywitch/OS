@@ -1,2 +1,2 @@
 all:
-	gcc -o sheduler sheduler.c -g
+	gcc -o scheduler scheduler.c -g
